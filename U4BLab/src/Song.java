@@ -16,6 +16,6 @@ public class Song {
     }
 
     public String toString(){
-            return String.format("%-21s %-30s %-20s %-23d %-27d %-30s", title, artist, album, sales, year, genre);}
+            return String.format("%-25s %-30s %-35s %-37d %-40d %-42s", title, artist, album, sales, year, genre);}
     }
 

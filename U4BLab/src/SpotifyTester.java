@@ -30,6 +30,13 @@ public class SpotifyTester {
                 user.nextLine(); //Required so it doesn't pick up the enter key afterward.
             }
         }
+        if (userChoice == 5){
+            Playlist playlist = new Playlist(songs);
+            System.out.println("What Genre?");
+            user.nextLine();
+            String genre = user.nextLine().toUpperCase();
+            System.out.println(playlist.searchGenre(genre).toString(true));
+        }
         if (userChoice == 6){
             Playlist playlist = new Playlist(songs);
             System.out.println(playlist.toString(true));

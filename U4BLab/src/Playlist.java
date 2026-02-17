@@ -31,8 +31,19 @@ public class Playlist {
     public void sortYearNO(){
 
     }
-    public void searchGenre(String target){
+    public Playlist searchGenre(String target){
+        Playlist tempSongs = new Playlist(songs);
+        for (int i = 0; i < songs.size(); i++){
+            if (!songs.get(i).getGenre().toUpperCase().equals(target)){
+                tempSongs.Remove(i);
+                i--;
+            }
+        }
+        return tempSongs;
+    }
 
+    public void Remove(int i){
+        this.songs.remove(i);
     }
     public void displayAll(){
         System.out.println(songs.toString());

@@ -15,6 +15,10 @@ public class Song {
         this.genre = genre;
     }
 
+    public String getGenre(){
+        return this.genre;
+    }
+
     public String toString(){
             return String.format("%-25s %-30s %-35s %-37d %-40d %-42s", title, artist, album, sales, year, genre);}
     }

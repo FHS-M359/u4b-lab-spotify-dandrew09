@@ -4,7 +4,7 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 public class Playlist {
     private ArrayList<Song> songs = new ArrayList<Song>();
-    private final String header = String.format("%-25s %-30s %-35s %-37s %-40s %-42s", "Title", "Artist", "Album", "Sales (Million)", "Year", "Genre") + "\n----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------";
+    private final String header = String.format("%-25s %-30s %-35s %-37s %-40s %-42s", "Title", "Artist", "Album", "Duration", "Year", "Genre") + "\n----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------";
     public String toString(boolean useHeader){
         String ret = "";
         if (useHeader){
@@ -25,9 +25,22 @@ public class Playlist {
     public void sortArtistZA(){
 
     }
-    public void sortYearON(){
+    public Playlist sortYearON(){
+        Playlist tempSongs = new Playlist(songs);
+        for (int i = 0; i < tempSongs.songs.size(); i++){
+            int minIndex = i;
 
+            for (int j = i + 1; j < tempSongs.songs.size(); j++){
+                if (tempSongs.songs.get(minIndex).getYear() < tempSongs.songs.get(j).getYear()){
+                    minIndex = j;
+                }
+            }
+            int temp = tempSongs.songs.get(i).getYear();
+            tempSongs.songs.set(i, tempSongs.songs.get(minIndex).getYear());
+            list.size
+        }
     }
+
     public void sortYearNO(){
 
     }

@@ -27,6 +27,17 @@ public class Song {
         return this.year;
     }
 
+    public void setYear(int year) {
+        this.year = year;
+    }
+
+    public String getArtist() {
+        return artist;
+    }
+
+    public void setArtist(String artist) {
+        this.artist = artist;
+    }
 }
 
 

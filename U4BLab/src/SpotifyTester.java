@@ -30,6 +30,22 @@ public class SpotifyTester {
                 user.nextLine(); //Required so it doesn't pick up the enter key afterward.
             }
         }
+        if (userChoice == 1) {
+            Playlist playlist = new Playlist(songs);
+            System.out.println(playlist.sortArtistAZ().toString(true));
+        }
+        if (userChoice == 2) {
+            Playlist playlist = new Playlist(songs);
+            System.out.println(playlist.sortArtistZA().toString(true));
+        }
+        if (userChoice == 3) {
+            Playlist playlist = new Playlist(songs);
+            System.out.println(playlist.sortYearON().toString(true));
+        }
+        if (userChoice == 4) {
+            Playlist playlist = new Playlist(songs);
+            System.out.println(playlist.sortYearNO().toString(true));
+        }
         if (userChoice == 5){
             Playlist playlist = new Playlist(songs);
             System.out.println("What Genre?");

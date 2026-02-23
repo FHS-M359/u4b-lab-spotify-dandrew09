@@ -25,7 +25,7 @@ public class Playlist {
             int minIndex = i;
 
             for (int j = i + 1; j < tempSongs.songs.size(); j++){
-                if (tempSongs.songs.get(minIndex).getArtist().compareTo(tempSongs.songs.get(j).getArtist()) > 0){
+                if (tempSongs.songs.get(minIndex).getArtist().toUpperCase().compareTo(tempSongs.songs.get(j).getArtist().toUpperCase()) > 0){
                     minIndex = j;
                 }
             }
@@ -41,7 +41,7 @@ public class Playlist {
             int minIndex = i;
 
             for (int j = i + 1; j < tempSongs.songs.size(); j++){
-                if (tempSongs.songs.get(minIndex).getArtist().compareTo(tempSongs.songs.get(j).getArtist()) < 0){
+                if (tempSongs.songs.get(minIndex).getArtist().toUpperCase().compareTo(tempSongs.songs.get(j).getArtist().toUpperCase()) < 0){
                     minIndex = j;
                 }
             }
@@ -52,7 +52,7 @@ public class Playlist {
         return tempSongs;
     }
     public Playlist sortYearON(){
-        Playlist tempSongs = new Playlist(songs);
+        /*Playlist tempSongs = new Playlist(songs);
         for (int i = 0; i < tempSongs.songs.size(); i++){
             int minIndex = i;
 
@@ -65,25 +65,40 @@ public class Playlist {
             tempSongs.songs.get(i).setYear(tempSongs.songs.get(minIndex).getYear());
             tempSongs.songs.get(minIndex).setYear(temp);
         }
+        return tempSongs;*/
+        Playlist tempSongs = new Playlist(songs);
+           for (int i = 1; i< tempSongs.songs.size(); i++){
+                int tempVal = tempSongs.songs.get(i).getYear();
+                int position = i;
+
+                while(position > 0 && tempSongs.songs.get(position - 1).getYear()> tempVal){
+                    tempSongs.songs.get(position).setYear(tempSongs.songs.get(position-1).getYear());
+                    position--;
+                }
+               tempSongs.songs.get(position).setYear(tempVal);
+           }
+
+
         return tempSongs;
+
+
     }
 
     public Playlist sortYearNO(){
         Playlist tempSongs = new Playlist(songs);
-        for (int i = 0; i < tempSongs.songs.size(); i++){
-            int minIndex = i;
+           for (int i = 1; i< tempSongs.songs.size(); i++){
+                int tempVal = tempSongs.songs.get(i).getYear();
+                int position = i;
 
-            for (int j = i + 1; j < tempSongs.songs.size(); j++){
-                if (tempSongs.songs.get(minIndex).getYear() < tempSongs.songs.get(j).getYear()){
-                    minIndex = j;
+                while(position > 0 && tempSongs.songs.get(position - 1).getYear()< tempVal){
+                    tempSongs.songs.get(position).setYear(tempSongs.songs.get(position-1).getYear());
+                    position--;
                 }
-            }
-            int temp = tempSongs.songs.get(i).getYear();
-            tempSongs.songs.get(i).setYear(tempSongs.songs.get(minIndex).getYear());
-            tempSongs.songs.get(minIndex).setYear(temp);
-        }
-        return tempSongs;
+               tempSongs.songs.get(position).setYear(tempVal);
+           }
 
+
+        return tempSongs;
     }
     public Playlist searchGenre(String target){
         Playlist tempSongs = new Playlist(songs);
